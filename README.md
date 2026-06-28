@@ -35,27 +35,37 @@ The feature map concatenated into the final classification layer consists of thr
 
 The deployment infrastructure is powered by a high-performance **FastAPI** server that ingests image uploads and executes a hierarchical dual-stream verification protocol to ensure maximum security.
 
-                 [ Uploaded Image ]
-                        │
-           Processor: Extract Streams
-           /                            \
-  Global Stream                        Face Stream
-(FFT Analysis -> G_Score)            (SRM Analysis -> F_Score)
-\                            /
-\                          /
-[ Selection: Final_Score = Min(G_Score, F_Score) ]
-│
-┌──────────────────────────┼──────────────────────────┐
-▼                          ▼                          ▼
-Score >= 0.65             0.35 <= Score < 0.65         Score < 0.35
-[ AUTHENTIC IMAGE ]                 │                     [ AI GENERATED ]
-▼
-Is Face_Stream triggered?
-/
+```mermaid
+graph TD
+    A[📥 Uploaded Image] --> B[⚙️ Processor: Extract Streams]
+    
+    B -->|Path A: Raw Frame| C[🌐 Global Stream]
+    B -->|Path B: Haar Cascade Crop| D[👤 Face Stream]
+    
+    C -->|Mathematical Dissection| E[⚡ FFT Spectrum Analysis]
+    D -->|Forensic Texture Analysis| F[🔬 SRM Filter Bank]
+    
+    E -->|Predict Real Prob| G[Calculated G_Score]
+    F -->|Predict Real Prob| H[Calculated F_Score]
+    
+    G --> I[⚖️ Decision Core: Final_Score = Min G_Score, F_Score]
+    H --> I
+    
+    I --> J{Evaluate Final_Score}
+    
+    J -->|Score >= 0.65| K[🟢 AUTHENTIC IMAGE REAL]
+    J -->|0.35 <= Score < 0.65| L{Is Face_Stream Triggered?}
+    J -->|Score < 0.35| M[🔴 AI GENERATED DEEPFAKE]
+    
+    L -->|Yes| N[🔶 DEEPFAKE / FACE-SWAP]
+    L -->|No| O[🟡 EDITED / COMPRESSED IMAGE]
 
-Yes                        No
-▼                          ▼
-[ DEEPFAKE / FACE-SWAP ]    [ EDITED IMAGE ]
+    style K fill:#10b981,stroke:#115e59,stroke-width:2px,color:#fff
+    style L fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff
+    style M fill:#ef4444,stroke:#991b1b,stroke-width:2px,color:#fff
+    style N fill:#ea580c,stroke:#9a3412,stroke-width:2px,color:#fff
+    style O fill:#eab308,stroke:#854d0e,stroke-width:2px,color:#fff
+```
 
 
 ### 1. Microservice Stream Logic
