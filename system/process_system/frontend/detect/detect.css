@@ -1,0 +1,102 @@
+/* ================= BỐ CỤC CĂN GIỮA MÀN HÌNH ================= */
+.page-content { 
+    padding: 2rem 5%; 
+    min-height: calc(100vh - 160px); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.title-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+.title-container h2 { margin: 0; font-size: 1.8rem; }
+
+.btn-info { 
+    background: transparent; border: 2px solid var(--primary-cyan); 
+    color: var(--text-dark); padding: 8px 15px; border-radius: 20px; 
+    cursor: pointer; font-weight: bold; transition: 0.3s; 
+}
+.btn-info:hover { 
+    background: var(--primary-cyan); color: #000; 
+    box-shadow: 0 4px 10px rgba(0,230,255,0.3); 
+}
+
+/* ================= 2 KHUNG PHÂN TÍCH ================= */
+.split-layout { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    height: 65vh; /* Độ lớn của khung */
+    min-height: 480px; /* Giới hạn độ lùn để không bị bóp méo trên màn hình nhỏ */
+}
+
+.panel { 
+    background: var(--card-bg); 
+    border-radius: 12px; padding: 2rem; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    display: flex; flex-direction: column; 
+}
+
+.upload-area { 
+    flex: 1; border: 2px dashed #ccc; border-radius: 10px; 
+    display: flex; align-items: center; justify-content: center; 
+    cursor: pointer; position: relative; overflow: hidden; 
+}
+.upload-area:hover { 
+    border-color: var(--primary-cyan); 
+    background-color: rgba(0,230,255,0.05); 
+}
+.upload-area img { 
+    max-width: 100%; max-height: 100%; 
+    object-fit: contain; position: absolute; display: none; 
+}
+
+.btn-scan { 
+    margin-top: 20px; padding: 15px; 
+    background-color: var(--primary-cyan); color: #000; 
+    border: none; border-radius: 8px; font-weight: bold; 
+    cursor: pointer; transition: 0.3s; 
+}
+.btn-scan:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0,230,255,0.5); 
+}
+
+.console-box { 
+    background-color: #1a1a2e; color: #00ff00; 
+    font-family: 'Courier New', monospace; 
+    padding: 20px; border-radius: 8px; flex: 1; overflow-y: auto; 
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.5); 
+}
+.log-line { margin-bottom: 8px; animation: fadeInLog 0.3s forwards; }
+@keyframes fadeInLog { from{opacity:0} to{opacity:1} }
+
+/* ================= CSS CHO POPUP (MODAL) GIỮ NGUYÊN ================= */
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); z-index: 2000;
+    justify-content: center; align-items: center; backdrop-filter: blur(5px);
+}
+.modal-content {
+    background: var(--bg-light); padding: 35px; border-radius: 15px;
+    max-width: 600px; width: 90%; border-left: 8px solid var(--primary-cyan);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.model-features { list-style: none; padding: 0; margin-bottom: 25px; }
+.model-features li {
+    background: var(--card-bg); margin-bottom: 15px; padding: 15px;
+    border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #eee; line-height: 1.5;
+}
+.btn-close-modal {
+    width: 100%; padding: 15px; background: var(--text-dark); color: #fff;
+    border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;
+    cursor: pointer; transition: 0.3s;
+}
+.btn-close-modal:hover { background: var(--primary-cyan); color: #000; }

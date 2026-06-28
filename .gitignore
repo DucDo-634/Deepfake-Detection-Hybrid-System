@@ -1,0 +1,13 @@
+# Exclude heavy local dataset
+dataset/
+
+# Exclude local training checkpoints (only keep best_model.pth if desired, or ignore all)
+output/model_epoch_*.pth
+training_curves.png
+training_log.txt
+
+# Exclude python cache
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store

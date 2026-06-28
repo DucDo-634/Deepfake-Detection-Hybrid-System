@@ -1,0 +1,58 @@
+/* ================= GLOBAL COLOR PALETTE & UI CONFIG ================= */
+:root {
+    --primary-color: #0f766e; /* Deep Teal */
+    --primary-cyan: #06b6d4;
+    --bg-light: #f8fafc; 
+    
+    --text-dark: #1e293b; 
+    --text-muted: #64748b; 
+    --card-bg: #ffffff;
+    
+    /* Forensic Status Colors */
+    --danger: #ef4444;    /* Deepfake */
+    --success: #10b981;   /* Authentic */
+    --warning: #f59e0b;   /* Suspicious/Edited */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    padding-top: 75px; 
+    line-height: 1.6; 
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 3px solid var(--primary-color);
+    padding: 1rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    z-index: 9999; 
+}
+
+.logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; text-decoration: none; color: var(--text-dark); }
+.logo span { color: var(--primary-color); }
+
+nav a {
+    text-decoration: none;
+    font-size: 1rem; font-weight: 600; color: var(--text-dark);
+    margin-left: 20px; padding-bottom: 5px; transition: 0.3s; border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
+
+/* FOOTER */
+footer {
+    text-align: center; padding: 20px; margin-top: 50px;
+    background: #1e293b; color: #f1f5f9; font-size: 0.9rem;
+}
+footer span { color: var(--primary-cyan); font-weight: bold; }

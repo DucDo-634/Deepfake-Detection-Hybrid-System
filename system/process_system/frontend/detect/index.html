@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Engine - Deepfake Forensics</title>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="detect.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="page-content">
+        <div class="title-container">
+            <h2>Digital Forensics Workspace</h2>
+            <button class="btn-info" onclick="openModal()">ℹ️ Engine Architecture</button>
+        </div>
+
+        <div class="split-layout">
+            <div class="panel">
+                <h3>1. Input Source</h3>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <span id="upload-text">Click or Drag Image Here (JPG/PNG)</span>
+                    <img id="preview" src="" alt="Uploaded Image">
+                </div>
+                <button class="btn-scan" onclick="startDetection()">Initialize Multimodal Scan</button>
+            </div>
+            
+            <div class="panel">
+                <h3>2. AI Core Processing Terminal</h3>
+                <div class="console-box" id="consoleBox">
+                    <div style="color: #888;">[System] Awaiting input data...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h3 style="color: var(--primary-cyan); margin-top: 0;">🧠 Multimodal Forensic Architecture</h3>
+            <p>This system utilizes a dual-stream hybrid architecture to dissect images on a mathematical level:</p>
+            <ul class="model-features">
+                <li><strong>1. EfficientNet-B3 Backbone:</strong> Scans spatial semantics and geometric structures for logical inconsistencies.</li>
+                <li><strong>2. CBAM Attention Mechanism:</strong> Forces the AI to focus on blending boundaries (e.g., neck, hair, lips).</li>
+                <li><strong>3. FFT Spectrum Analysis:</strong> Converts the image to the frequency domain to detect synthetic AI checkerboard artifacts (Diffusion/GANs).</li>
+                <li><strong>4. SRM Filter Bank:</strong> Extracts high-frequency camera noise to identify pixel-level splicing and face-swapping.</li>
+            </ul>
+            <button class="btn-close-modal" onclick="closeModal()">Acknowledge</button>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="../shared/components.js"></script>
+    <script src="detect.js"></script>
+</body>
+</html>

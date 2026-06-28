@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report - Deepfake Forensics</title>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="page-content">
+        <div class="result-container">
+            <h2 class="result-title">FORENSIC ANALYSIS REPORT</h2>
+            
+            <div class="res-image-box">
+                <img id="res-image" src="" alt="Analyzed Target">
+            </div>
+            
+            <div id="res-status" class="res-status">PROCESSING...</div>
+            
+            <div class="res-explanation">
+                <strong>📝 DIAGNOSTIC EVALUATION:</strong>
+                <p id="res-comment" style="margin-top: 10px; line-height: 1.6;">Awaiting data...</p>
+            </div>
+
+            <div class="metrics-board">
+                <h4 style="margin-top: 0; margin-bottom: 15px; color: var(--text-dark); border-bottom: 2px solid #eee; padding-bottom: 8px;">📊 Digital Metrics</h4>
+                
+                <div class="metric-item">
+                    <span class="metric-label">Triggered Stream:</span>
+                    <span id="res-trigger" class="metric-value badge">--</span>
+                </div>
+                
+                <div class="metric-item">
+                    <span class="metric-label">Raw Algorithm Logit:</span>
+                    <span id="res-logit" class="metric-value font-mono">--</span>
+                </div>
+
+                <div class="metric-item progress-container">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span class="metric-label">Classification Confidence:</span>
+                        <span id="res-conf" class="metric-value font-bold">--%</span>
+                    </div>
+                    <div class="progress-bg">
+                        <div id="res-progress-bar" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-back" onclick="window.location.href='../detect/index.html'">Scan New Subject</button>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="../shared/components.js"></script>
+    <script src="result.js"></script>
+</body>
+</html>
