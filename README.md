@@ -14,7 +14,7 @@ With the rapid democratization of generative artificial intelligence (e.g., adva
 
 ## 🧬 Core Model Training Pipeline
 
-The analytical core model (`train.py`) is trained locally utilizing high-throughput optimization parameters designed for state-of-the-art consumer GPUs (NVIDIA RTX 50-series / Ada Lovelace).
+The analytical core model (`train.py`) is trained locally utilizing high-throughput optimization parameters designed for state-of-the-art consumer GPUs .
 
 ### 1. Training Parameters & Optimization
 * **Backbone Network:** EfficientNet-B3 initialized with ImageNet weights, augmented with CBAM (Convolutional Block Attention Module) channel and spatial attention gates.
@@ -84,7 +84,7 @@ graph TD
 ## 🚀 System Deployment
 
 ### Prerequisites
-Ensure your local host is equipped with Python 3.12, NVIDIA Drivers, and CUDA 13.x Nightly toolkit (Optimized for RTX 50-series Blackwell architecture).
+Ensure your local host is equipped with Python 3.12, NVIDIA Drivers, and CUDA 13.x Nightly toolkit .
 
 ### Installation & Execution
 ```bash
