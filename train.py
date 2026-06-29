@@ -1,8 +1,7 @@
 """
 =========================================================================================
-DEEPFAKE DETECTION MODEL - ACADEMIC/PRODUCTION VERSION
+DEEPFAKE DETECTION MODEL 
 Architecture: EfficientNet-B3 Hybrid (Spatial Domain + SRM + FFT)
-Optimization: BFloat16 Mixed Precision, Calibrated Focal Loss, Cosine Annealing
 =========================================================================================
 """
 import os, gc, io, time, math, random, logging
@@ -21,7 +20,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-# ── HARDWARE SETUP & LOW-LEVEL COMPUTE OPTIMIZATION ────────────────────────────
+# ── HARDWARE SETUP ────────────────────────────
 torch.set_float32_matmul_precision('high') 
 torch.backends.cudnn.allow_tf32 = True
 torch.backends.cuda.matmul.allow_tf32 = True
